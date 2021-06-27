@@ -186,10 +186,6 @@ def main(request, response):
 def page404(request, response):
     response.status = 301
     response.location = f"{SITE_ADDRESS}/"
-
-import requests
-res = requests.get("http://ip.quotaguard.com/")
-ip_address = res.json()['ip']
     
-run_simple(ip_address, 80, app, use_reloader=True,
+run_simple("http://localhost/", 80, app, use_reloader=True,
            reloader_type="watchdog")  # , use_debugger=True
