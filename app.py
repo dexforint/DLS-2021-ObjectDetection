@@ -187,5 +187,5 @@ def page404(request, response):
     response.status = 301
     response.location = f"{SITE_ADDRESS}/"
 
-run_simple('dls-project.herokuapp.com', 80, app, use_reloader=True,
+run_simple('127.0.0.1', 80, app, use_reloader=True,
            reloader_type="watchdog")  # , use_debugger=True
