@@ -56,7 +56,7 @@ class API:
                         handler(), request.method.lower(), None)
                     if handler is None:
                         raise AttributeError(
-                            "Method now allowed", request.method)
+                            "Method now allowed!", request.method)
 
                     handler(request, response, **kwargs)
                 else:
