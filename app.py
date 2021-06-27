@@ -187,6 +187,7 @@ def page404(request, response):
     response.status = 301
     response.location = f"{SITE_ADDRESS}/"
 
+import requests
 res = requests.get("http://ip.quotaguard.com/")
 ip_address = res.json()['ip']
     
