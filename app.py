@@ -187,12 +187,7 @@ def page404(request, response):
     response.status = 301
     response.location = f"{SITE_ADDRESS}/"
 
-proxies = {
-    "http": os.environ['QUOTAGUARDSTATIC_URL'],
-    "https": os.environ['QUOTAGUARDSTATIC_URL']
-}
-
-res = requests.get("http://ip.quotaguard.com/", proxies=proxies)
+res = requests.get("http://ip.quotaguard.com/")
 ip_address = res.json()['ip']
     
 run_simple(ip_address, 80, app, use_reloader=True,
