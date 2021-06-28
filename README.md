@@ -35,5 +35,6 @@
 ### 7 Оформление демо для показа другим людям
 Работающее демо проекта находится по адресу: https://dls-project.herokuapp.com
 ![image](https://github.com/dexforint/DLS-2021-ObjectDetection/blob/main/demo.gif?raw=true)
+*Искажения проявились в результате сжатия GIF*
 
 По каким-либо вопросам обращайтесь по вк: vk.com/dl_hello или телеграм: @dl_hello
