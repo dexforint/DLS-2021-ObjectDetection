@@ -185,5 +185,10 @@ def main(request, response):
 def page404(request, response):
     response.status = 404
     
-port = os.environ.get('PORT', 17995)
+ON_HEROKU = os.environ.get('ON_HEROKU')
+if ON_HEROKU:
+    # get the heroku port 
+    port = int(os.environ.get("PORT", 17995))  # as per OP comments default is 17995
+else:
+    port = 3000
 run_simple("0.0.0.0", port, app, use_reloader=False)  # , use_debugger=True
