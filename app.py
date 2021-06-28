@@ -187,5 +187,5 @@ def page404(request, response):
     response.status = 301
     response.location = f"{SITE_ADDRESS}/"
     
-run_simple("", 80, app, use_reloader=True,
+run_simple("0.0.0.0", 5000, app, use_reloader=True,
            reloader_type="watchdog")  # , use_debugger=True
