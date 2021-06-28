@@ -7,7 +7,7 @@
 2. Установите требования проекта (pip install -r requirements.txt)
 3. Измените файл app.py: Замените последнюю строку на `run_simple("localhost", 80, app, use_reloader=False)`
 4. Запустите app.py (python app.py)
-5. В браузере перейдите по ссылке [localhost](localhost)
+5. В браузере перейдите по ссылке [http://localhost:80/](http://localhost:80/)
 
 ## Пояснения
 
