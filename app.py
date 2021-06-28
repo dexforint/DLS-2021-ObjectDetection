@@ -188,7 +188,7 @@ def page404(request, response):
 
 
 if "PORT" in os.environ:
-    port = os.environ['PORT']
+    port = int(os.environ['PORT'])
     hostname = '0.0.0.0'
 else:
     port = 80
