@@ -26,7 +26,6 @@ sys.path.append(FILE.parents[0].as_posix())  # add yolov5/ to path
 
 
 SITE_PATH = os.getcwd()
-SITE_ADDRESS = 'http://localhost:8080'
 
 # Init model
 weights = 'yolov5s.pt'  # model.pt path(s)
@@ -184,8 +183,6 @@ def main(request, response):
 
 @app.route(r".+")
 def page404(request, response):
-    response.status = 301
-    response.location = f"{SITE_ADDRESS}/"
+    response.status = 404
     
-run_simple("0.0.0.0", 5000, app, use_reloader=True,
-           reloader_type="watchdog")  # , use_debugger=True
+run_simple("0.0.0.0", 5000, app, use_reloader=False)  # , use_debugger=True
