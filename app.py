@@ -185,4 +185,5 @@ def main(request, response):
 def page404(request, response):
     response.status = 404
     
-run_simple("0.0.0.0", 5000, app, use_reloader=False)  # , use_debugger=True
+port = os.environ.get('PORT', 17995)
+run_simple("0.0.0.0", port, app, use_reloader=False)  # , use_debugger=True
