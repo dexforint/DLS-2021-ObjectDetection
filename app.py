@@ -1,4 +1,3 @@
-# hello
 import os
 from werkzeug.serving import run_simple
 from api import API
@@ -16,7 +15,6 @@ import sys
 import time
 from pathlib import Path
 
-#from tools import *
 
 import cv2
 import torch
@@ -32,7 +30,7 @@ weights = 'yolov5s.pt'  # model.pt path(s)
 imgsz = 640  # inference size (pixels)
 conf_thres = 0.25  # confidence threshold
 iou_thres = 0.45  # NMS IOU threshold
-max_det = 100  # maximum detections per image
+max_det = 1000  # maximum detections per image
 device = ''  # cuda device, i.e. 0 or 0,1,2,3 or cpu
 save_img = True  # do not save images/videos
 classes = None  # filter by class: --class 0, or --class 0 2 3
@@ -62,7 +60,8 @@ if device.type != 'cpu':
 # End init model
 
 app = API()
-    
+
+
 def custom_exception_handler(request, response, exception_cls):
     response.text = "Oops! Something went wrong. Please, contact our customer support at +1-202-555-0127."
 
@@ -159,6 +158,7 @@ def detector(image_data):
     print(f'Done. ({time.time() - t0:.3f}s)')
     return True, image_number
 
+
 @app.route("/detect-object")
 def detect_object(request, response):
     print("detect object")
@@ -181,10 +181,16 @@ def main(request, response):
     with open("./index.html", 'rb') as f:
         response.body = f.read()
 
+
 @app.route(r".+")
 def page404(request, response):
     response.status = 404
-    
-port = int(os.environ.get("PORT", 17995))  # as per OP comments default is 17995
-print(port)
-run_simple("0.0.0.0", port, app, use_reloader=False)  # , use_debugger=True
+
+
+if "PORT" in os.environ:
+    port = os.environ['PORT']
+    hostname = '0.0.0.0'
+else:
+    port = 80
+    hostname = 'localhost'
+run_simple(hostname, port, app, use_reloader=False)
