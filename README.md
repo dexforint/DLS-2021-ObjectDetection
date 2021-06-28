@@ -5,9 +5,8 @@
 ## Инструкции по запуску проекта на компьютере
 1. Скачайте проект
 2. Установите требования проекта (pip install -r requirements.txt)
-3. Измените файл app.py: Замените последнюю строку на `run_simple("localhost", 80, app, use_reloader=False)`
-4. Запустите app.py (python app.py)
-5. В браузере перейдите по ссылке [http://localhost:80/](http://localhost:80/)
+3. Запустите app.py (python app.py)
+4. В браузере перейдите по ссылке [http://localhost:80/](http://localhost:80/)
 
 ## Пояснения
 
